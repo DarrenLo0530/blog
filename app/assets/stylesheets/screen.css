@@ -2,11 +2,11 @@ body{
     background-color: white;
     font-family: Arial;
 }
-h1 {
+h1, h2, h3{
     text-align: center;
 }
 
-p {
+.content {
     margin: 50px 150px 50px 150px;
     padding: 20px;
 }
@@ -18,10 +18,12 @@ ul {
     line-height: 100px;
 }
 
-.home {
+.home, .delete, .edit{
     display: block;
     text-align: center;
 }
+
+
 
 .article_title{
     font-size: 20px;
@@ -31,3 +33,4 @@ ul {
     display: block;
     text-align: center;
 }
+

@@ -2,12 +2,19 @@
     <%= @article.title %>
 </h1>
 
-<p>
+<p class = "content">
     <%= @article.body%>
 </p>
 
-<%= link_to "Edit Article", edit_article_path(@article)%>
+<h3>Comments (<%= @article.comments.size%>)</h3>
 
-<%= link_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %>
+<%= render partial: 'articles/comment', collection: @article.comments %>
+
+<%= render partial: "comments/form" %>
+
+
+<%= link_to "Edit Article", edit_article_path(@article), class: "edit"%>
+
+<%= link_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "delete"%>
 
 <%= link_to "Go Back To Home", articles_path(), class: "home"%>

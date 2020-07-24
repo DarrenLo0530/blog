@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :require_login, only: [:create]
+
   include CommentsHelper
 
   def create

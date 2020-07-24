@@ -10,9 +10,22 @@
   </head>
 
   <body>
+    <header> 
+        <div class = 'account-name'>   
+            <%if logged_in?%>
+                <%= "Logged in as: #{current_user.email}" %>
+                <%= link_to "Log out", logout_path%>
+            <%else%>
+                <%= link_to "Log in", login_path%>
+            <%end%>
+        </div>
+    </header>
+    
     <p class = "flash">
         <%= flash.notice %>
     </p>
     <%= yield %>
   </body>
+
+  
 </html>

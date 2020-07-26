@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+  belongs_to :author
   has_many :comments, dependent: :destroy
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings

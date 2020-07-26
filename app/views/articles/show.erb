@@ -12,7 +12,9 @@
 
 <p class = "content">
     <%= @article.body%>
-    <p><%= image_tag @article.image.url %></p>
+    <%if @article.image.exists?%>
+        <p><%= image_tag @article.image.url %></p>
+    <%end%>
 
 </p>
 
@@ -23,8 +25,7 @@
 <%= render partial: "comments/form" %>
 
 
-<%if logged_in?%>
-
+<%if is_author?%>
     <%= link_to "Edit Article", edit_article_path(@article), class: "edit"%>
 
     <%= link_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "delete"%>

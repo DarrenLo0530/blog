@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
-  before_action :require_login, except: [:index, :show]
-
   include ArticlesHelper
-  include TagsHelper
+
+  before_action :require_login, except: [:index, :show]
+  before_action :is_owner?, only: [:destroy, :edit]
 
   def index
     @articles = Article.all
@@ -21,6 +21,7 @@ class ArticlesController < ApplicationController
   
   def create
     @article = Article.new(article_params)
+    @article.author_id = current_user.id
     @article.save
     flash.notice = "Created article: '#{@article.title}'"
     redirect_to article_path(@article);

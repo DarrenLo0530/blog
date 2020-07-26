@@ -6,6 +6,10 @@ h1, h2, h3{
     text-align: center;
 }
 
+a {
+    display: block;
+}
+
 header {
     background-color: red;
     height: 5vh;

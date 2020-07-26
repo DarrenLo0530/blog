@@ -1,9 +1,11 @@
 <h1>Find Articles By Tags</h1>
 
-<ul>   
-    <%@tags.each do |tag|%>
-        <li><%=link_to tag.name, tag_path(tag)%></li>
-    <%end%>
-</ul>
+<div class = 'tag-list'>
+    <ul>   
+        <%@tags.each do |tag|%>
+            <li><%=link_to tag.name, tag_path(tag)%></li>
+        <%end%>
+    </ul>
+</div>
 
 <%=link_to "Home Page", articles_path%>

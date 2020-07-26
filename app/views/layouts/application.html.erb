@@ -11,16 +11,31 @@
 
   <body>
     <header> 
-        <div class = 'account-name'>   
+        <ul id = 'nav-bar'>
+
+            <li><%=link_to "Home", root_path%></li>
+            <li><%= link_to "Articles", articles_path%></li>
             <%if logged_in?%>
-                <%= "Logged in as: #{current_user.email}" %>
-                <%= link_to "Log out", logout_path%>
-            <%else%>
-                <%= link_to "Log in", login_path%>
+                <li><%= link_to "Authors", authors_path%></li>
             <%end%>
-        </div>
-    </header>
+            <li><%= link_to "Tags", tags_path%></li>
+
+
+            <%if logged_in?%>
+                <li id = 'login-out'>
+                    <%= link_to "Hi, #{current_user.username}", logout_path%>
+                </li>
+            <%else%>
+                <li id = 'login-out'>
+                    <%= link_to "Log in", login_path%>
+                </li>
+            <%end%>
+
     
+        
+        </ul>
+    </header>
+
     <p class = "flash">
         <%= flash.notice %>
     </p>

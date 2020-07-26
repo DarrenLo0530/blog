@@ -1,14 +1,21 @@
 <h1>All Articles</h1>
 
-<ul>
-    <% @articles.each do |article| %>
-        <li>
-            <%= link_to article.title, article_path(article), class: "article-title" %>
-        </li>
-    <% end %>
-</ul>
+<div class = 'article-list'>
+    <% if @articles.size() == 0 %>
+        <p>There are currently no articles</p>
+    <% else %>   
+        <ul>
+        
+            <% @articles.each do |article| %>
+                <li>
+                    <%= link_to article.title, article_path(article), class: "article-title" %>
+                </li>
+            <% end %>
+        </ul>
+    <%end%>
 
-<%= link_to "View All Tags", tags_path%>
+</div>
+    
 
 <% if logged_in? %>
     <%= link_to "Create New Article", new_article_path, class: "new-article" %>

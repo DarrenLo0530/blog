@@ -1,22 +1,22 @@
 class ArticlesController < ApplicationController
   include ArticlesHelper
+  include ApplicationHelper
 
   before_action :require_login, except: [:index, :show]
-  before_action :is_owner?, only: [:destroy, :edit]
+  before_action :set_article, except: [:index, :create, :new]
+  before_action :require_author, only: [:destroy, :edit]
 
   def index
     @articles = Article.all
   end
 
   def show
-    @article = Article.find(params[:id]);
     @comment = Comment.new
     @comment.article_id = @article.id
   end
   
   def new
     @article = Article.new
-
   end
   
   def create
@@ -28,24 +28,20 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
     flash.notice = "Deleted article: '#{@article.title}'"
     @article.destroy
 
     #Deletes tag from database if no more articles are using the tag
-    remove_unused_tags
-    
+    helpers.remove_unused_tags
 
     redirect_to articles_path
   end
 
   def edit
-    @article = Article.find(params[:id])
-    remove_unused_tags
+    helpers.remove_unused_tags
   end
 
   def update
-    @article = Article.find(params[:id])
     @article.update(article_params)
 
     flash.notice = "Updated title to'#{@article.title}'"

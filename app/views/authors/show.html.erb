@@ -8,5 +8,15 @@
   <%= @author.email %>
 </p>
 
-<%= link_to 'Edit', edit_author_path(@author) %> |
+<h1>All Articles</h1>
+<ul>
+    <%@author.articles.each do |article|%>
+        <li><%=link_to article.title, article_path(article)%></li>
+    <% end %>
+
+</ul>
+
+
+
+<%= link_to 'Edit', edit_author_path(@author) %>
 <%= link_to 'Back', authors_path %>

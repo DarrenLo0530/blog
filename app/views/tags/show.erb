@@ -1,10 +1,13 @@
 <h1>Articles Tagged With <%=@tag.name%></h1>
 
-<%@tag.articles.each do |article|%>
-    <div>
-        <%= link_to article.title, article_path(article)%>
-    </div>
-<%end%>
+<div class = 'article-list'>
+    <%@tag.articles.each do |article|%>
+        <div>
+            <%= link_to article.title, article_path(article)%>
+        </div>
+    <%end%>
+</div>
+    
 
 <%= link_to "Delete Tag", tag_path(@tag), method: :delete%>
 <%= link_to "All Tags", tags_path%>

@@ -1,11 +1,14 @@
 <h1>Find Articles By Tags</h1>
 
 <div class = 'tag-list'>
-    <ul>   
-        <%@tags.each do |tag|%>
-            <li><%=link_to tag.name, tag_path(tag)%></li>
-        <%end%>
-    </ul>
+    <%if @tags.size() == 0%>
+        <p class = 'none-message'>There are currently no tags</p>
+    <% else %>
+        <ul>   
+            <%@tags.each do |tag|%>
+                <li><%=link_to tag.name, tag_path(tag)%></li>
+            <%end%>
+        </ul>
+    <%end%>
 </div>
 
-<%=link_to "Home Page", articles_path%>

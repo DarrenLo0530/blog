@@ -9,12 +9,16 @@
 </p>
 
 <h1>All Articles</h1>
-<ul>
-    <%@author.articles.each do |article|%>
-        <li><%=link_to article.title, article_path(article)%></li>
-    <% end %>
 
-</ul>
+<div class = 'article-list'>
+    <ul>
+        <%@author.articles.each do |article|%>
+            <li><%=link_to article.title, article_path(article)%></li>
+        <% end %>
+    </ul>
+
+</div>
+
 
 
 

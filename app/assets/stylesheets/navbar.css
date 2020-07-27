@@ -1,0 +1,38 @@
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar li {
+    display: inline-block;
+    text-align: center;
+    margin: 0px 20px;
+}
+
+.navbar li a {
+    text-decoration: none;
+}
+
+
+.navbar .dropdown {
+    position: relative;
+    width: 20%;
+    margin-left: auto;
+}
+
+.navbar .dropdown .dropdown-menu {
+    width: 100%;
+    padding: 10px;
+    background-color: #302e2e;
+    position: absolute;
+    display:none;
+}
+
+.navbar a:hover {
+    color: var(--accent-color-1);
+}
+
+.dropdown-button:hover .dropdown-menu {
+    display:block;
+}

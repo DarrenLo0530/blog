@@ -1,21 +1,25 @@
-<h1>Login</h1>
+<div class = 'login-console'>
+    <h1>Login</h1>
 
-<%= form_tag author_sessions_path, method: :post do %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-    <br/>
-  </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-    <br/>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Login" %>
-  </div>
+        <%= form_tag author_sessions_path, method: :post do %>
+        <div class="field">
+            <%= label_tag :email %>
+            <%= text_field_tag :email %>
+            <br/>
+        </div>
+        <div class="field">
+            <%= label_tag :password %>
+            <%= password_field_tag :password %>
+            <br/>
+        </div>
+        <div class="actions">
+            <%= submit_tag "Login" %>
+        </div>
 
-  <%=link_to "Create New Account", new_author_path%>
-<% end %>
+        <%=link_to "Create New Account", new_author_path%>
+    <% end %>
+
+
+</div>
 
 <%= link_to 'Back', articles_path %>

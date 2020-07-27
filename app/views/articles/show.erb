@@ -5,7 +5,7 @@
 <p>
     <div class = 'tag-list'>
         <%if @article.tags.size() == 0%>
-            No tags for this article
+            <p class = 'none-message'>No tags for this article</p>
         <%else%>
             <ul>Tags:
                 <%@article.tags.each do |tag|%>
@@ -39,4 +39,3 @@
     <%= link_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "delete"%>
 <% end %>
 
-<%= link_to "Go Back To Home", articles_path(), class: "home"%>

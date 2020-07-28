@@ -1,0 +1,14 @@
+<div class = 'item-list'>
+    <% if @articles.size() == 0 %>
+        <p class = 'none-message'>There are currently no articles</p>
+    <% else %>   
+        <ul>
+        
+            <% @articles.each do |article| %>
+                <li>
+                    <%= link_to article.title, article_path(article), class: "article-title" %>
+                </li>
+            <% end %>
+        </ul>
+    <%end%>
+</div>

@@ -1,30 +1,30 @@
-<h1>
-    <%= @article.title %>
-</h1>
+<div id = 'article-top'>
+    <h1 id = 'article-title'>
+        <%= @article.title %>
+    </h1>
 
-<p>
-    <div class = 'tag-list'>
-        <%if @article.tags.size() == 0%>
-            <p class = 'none-message'>No tags for this article</p>
-        <%else%>
-            <ul>Tags:
-                <%@article.tags.each do |tag|%>
-                    <li><%=link_to tag.name, tag_path(tag)%></li>
-                <%end%>
-            </ul>
-        <%end%>
+    <div id = 'article-view-count'><%= "Views: #{@article.view_count}" %></div>
+</div>
 
-    
-    </div>
-</p>
-
-<p class = "content">
+<p class = "article-body">
     <%= @article.body%>
     <%if @article.image.exists?%>
         <p><%= image_tag @article.image.url %></p>
     <%end%>
-
 </p>
+
+<div class = 'item-list'>
+    <%if @article.tags.size() == 0%>
+        <p class = 'none-message'>No tags for this article</p>
+    <%else%>
+        <ul>Tags:
+            <%@article.tags.each do |tag|%>
+                <li><%=link_to tag.name, tag_path(tag)%></li>
+            <%end%>
+        </ul>
+    <%end%>
+</div>
+
 
 <h3>Comments (<%= @article.comments.size%>)</h3>
 
@@ -33,9 +33,10 @@
 <%= render partial: "comments/form" %>
 
 
-<%if is_author?%>
-    <%= link_to "Edit Article", edit_article_path(@article), class: "edit"%>
 
-    <%= link_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "delete"%>
+<%if is_author?%>
+    <%= link_to "Edit Article", edit_article_path(@article), class: "action-link"%>
+
+    <%= link_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "action-link"%>
 <% end %>
 

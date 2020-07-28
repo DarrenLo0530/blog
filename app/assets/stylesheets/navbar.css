@@ -10,7 +10,7 @@
     margin: 0px 20px;
 }
 
-.navbar li a {
+.navbar a {
     text-decoration: none;
 }
 
@@ -23,16 +23,35 @@
 
 .navbar .dropdown .dropdown-menu {
     width: 100%;
-    padding: 10px;
-    background-color: #302e2e;
+    background-color: var(--grey-2);
     position: absolute;
     display:none;
+    z-index: 1; 
 }
 
-.navbar a:hover {
-    color: var(--accent-color-1);
+.navbar .dropdown-button{
+    padding: 10px;
 }
 
-.dropdown-button:hover .dropdown-menu {
+.dropdown-menu li {
+    margin: 0px;
+    display: block;
+    width: 100%;
+}
+
+.dropdown-menu a {
+    padding: 10px 0px;
+}
+
+.dropdown-menu a {
+    padding: 10px 0px;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--grey-3);
+}
+
+
+.dropdown:hover .dropdown-menu {
     display:block;
 }

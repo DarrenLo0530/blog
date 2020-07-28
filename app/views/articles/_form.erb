@@ -1,39 +1,40 @@
-<%= form_for(@article, html: {multipart: true}) do |f|%>
-    <ul>
-    <% @article.errors.full_messages.each do |error| %>
-        <li>
-            <%= error %>
-        </li>
+<div class = 'form-background'>
+    <%= form_for(@article, html: {multipart: true}) do |f|%>
+        <ul>
+        <% @article.errors.full_messages.each do |error| %>
+            <li>
+                <%= error %>
+            </li>
+        <% end %>
+        </ul>
+
+        <p>
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+        </p>
+
+        <p>
+            <%= f.label :body %>
+            <%= f.text_area :body %>
+        </p>
+
+        <p>
+            <%if @article.image.exists?%>
+                <%= image_tag @article.image.url%>
+            <%end%>
+            <%= f.label :image, "Attach an Image" %>
+            <%= f.file_field :image %>
+        </p>
+
+
+        <p>
+            <%= f.label :tag_list %>
+            <%= f.text_field :tag_list %>
+        </p>
+
+        <p>
+            <%= f.submit %>
+        </p>
     <% end %>
-    </ul>
+</div>
 
-    <p>
-        <%= f.label :title %><br/>
-        <%= f.text_field :title %>
-    </p>
-
-    <p>
-        <%= f.label :body %><br/>
-        <%= f.text_area :body %>
-    </p>
-
-    <p>
-        <%if @article.image.exists?%>
-            <%= image_tag @article.image.url%>
-        <%end%>
-        <%= f.label :image, "Attach an Image" %><br />
-        <%= f.file_field :image %>
-    </p>
-
-
-    <p>
-        <%= f.label :tag_list %><br/>
-        <%= f.text_field :tag_list %>
-    </p>
-
-    <p>
-        <%= f.submit %>
-    </p>
-<% end %>
-
-<%= link_to "Back", articles_path, class: "home"%>

@@ -1,25 +1,24 @@
-<h1>Authors</h1>
+<div class = 'item-list'>
+    <h1>Authors List</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table>
+    <thead>
+        <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th colspan="3"></th>
+        </tr>
+    </thead>
 
-  <tbody>
-    <% @authors.each do |author| %>
-      <tr>
-        <td><%= author.username %></td>
-        <td><%= author.email %></td>
-        <td><%= link_to 'Show', author %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <tbody>
+        <% @authors.each do |author| %>
+        <tr>
+            <td><%= author.username %></td>
+            <td><%= author.email %></td>
+            <td><%= link_to 'View', author %></td>
+        </tr>
+        <% end %>
+    </tbody>
+    </table>
+</div>
 
-<br>
-
-<%= link_to 'New Author', new_author_path %>

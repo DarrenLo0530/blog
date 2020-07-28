@@ -2,44 +2,106 @@
 body{
     background-color: var(--background);
     font-family: Arial;
-    color: rgba(255, 255, 255, .87);
+    color: var(--white-1);
     font-size: 18px;
+}
+
+div {
+    position: relative;
 }
 
 
 a {
     display: block;
-    color:  rgba(255, 255, 255, .87);
+    color:  var(--high-emphasis);
+}
+
+a:hover {
+    color: var(--main-accent-1);
+}   
+
+th {
+    font-weight: bold;
+}
+
+th, td {
+    padding: 10px 20px;
+    text-align: left;
 }
 
 h1 {
-    position: relative;
     text-align: center;
     font-size: 40px;
     padding: 10px;
     margin: 20px;
-    z-index: 0;
+}
+
+h3 {
+    text-align: center;
+    font-size: 25px;
+    color: var(--med-emphasis);
 }
 
 header {
-    padding: 30px 10%;
+    background-color: var(--grey-1);
+    padding: 20px 10%;
 }
 
-.accent-text-1{
-    color: var(--accent-color-1)
+label {
+    display: block;
+}
+
+.action-link {
+    margin: 10px 0px;
+    text-align: center;
 }
 
 .none-message {
     text-align: center;
     font-weight: bold;
-    color: var(--accent-color-1)
+    color: var(--main-accent-1)
 }
 
-.article-list {
+.item-list, .article-body {
     margin: 30px 100px;
     padding: 20px 50px;
     border-radius: 5px;
-    background-color: var(--grey-3);
+    background-color: var(--grey-1);
+}   
+
+.item-list li{
+    font-size: 20px;
+    margin: 10px 0px;
 }
+
+.form-background {
+    margin: 50px 30%;
+    padding: 50px;
+    background-color: var(--grey-1);
+    border-radius: 8px;
+}
+
+.article-body {
+    font-size: 20px;
+}
+
+
+#article-title {
+    display: block;
+}
+
+#article-view-count {
+    position: absolute;
+    left: 75%;
+    top: 0px;
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+    color: var(--med-emphasis);
+
+    background-color: var(--grey-2);
+
+}
+
 
 

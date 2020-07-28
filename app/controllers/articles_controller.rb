@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article.add_visit
     @comment = Comment.new
     @comment.article_id = @article.id
   end
@@ -22,6 +23,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.author_id = current_user.id
+    @article.view_count = 0
     @article.save
     flash.notice = "Created article: '#{@article.title}'"
     redirect_to article_path(@article);

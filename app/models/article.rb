@@ -16,4 +16,9 @@ class Article < ApplicationRecord
     tag_names = tags_string.split(",").collect{|tag| tag.strip.downcase}.uniq
     self.tags = tag_names.collect{|tag_name| Tag.find_or_create_by(name: tag_name)}
   end
+
+  def add_visit
+    self.view_count += 1
+    save!
+  end
 end

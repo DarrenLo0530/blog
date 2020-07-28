@@ -1,26 +1,20 @@
-<p>
-  <strong>Username:</strong>
-  <%= @author.username %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @author.email %>
-</p>
+<h1><%= "Proflile - #{@author.username}" %></h1>
 
-<h1>All Articles</h1>
-
-<div class = 'article-list'>
+<div class = 'item-list'>
     <ul>
-        <%@author.articles.each do |article|%>
-            <li><%=link_to article.title, article_path(article)%></li>
-        <% end %>
-    </ul>
+        <li>
+            <strong>Username:</strong>
+            <%= @author.username %>
+        </li>
+        <li>
+            <strong>Email:</strong>
+            <%= @author.email %>
 
+        </li>
+    </ul>
 </div>
 
+<h3><%= "#{@author.username}'s Articles" %></h3>
+<%= render partial: "shared/article_display" %>
 
-
-
-<%= link_to 'Edit', edit_author_path(@author) %>
-<%= link_to 'Back', authors_path %>

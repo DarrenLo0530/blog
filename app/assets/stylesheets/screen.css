@@ -48,7 +48,7 @@ h3 {
 
 header {
     background-color: var(--grey-1);
-    padding: 20px 10%;
+    padding: 20px 5% 20px 10%;
 }
 
 footer {

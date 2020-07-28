@@ -3,5 +3,4 @@
 <%= render partial: "shared/article_display" %>
     
 
-<%= link_to "Delete Tag", tag_path(@tag), method: :delete%>
-<%= link_to "All Tags", tags_path%>
+<%= link_to "All Tags", tags_path, class: 'action-link'%>

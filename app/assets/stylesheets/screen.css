@@ -56,15 +56,35 @@ label {
     font-size: 20px;
 }
 
+textarea {
+    resize: none;
+    height: 30vh;
+}
+
+input, textarea{
+    color: var(--high-emphasis);
+    background-color: var(--grey-2);
+}
+
+input[type=file]{
+    background-color: var(--grey-5);
+}
+
 
 input[type=text], input[type=password], textarea {
     margin: 20px 0px;
     font-family: Arial;
     font-size: 20px;
     padding: 5px 10px;
+    width: 100%;
 }
-input[type=text], input[type=password]{
-    width: 100%;    
+
+input[type=text]:hover, input[type=password]:hover, textarea:hover {
+    background-color: var(--grey-3);
+}
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+    background-color: var(--grey-2);
 }
 
 input[type=submit], input[type=file] {
@@ -85,10 +105,6 @@ input[type=submit]:hover {
     background-color: var(--secondary-accent-2);
 }
 
-textarea {
-    width: 100%;
-    height: 30vh;
-}
 
 .bullets {
     list-style-position: inside;
@@ -140,6 +156,8 @@ textarea {
     padding: 10px 30px;
     margin: 10px 30px;
 }
+
+
 
 #article-title {
     display: block; 

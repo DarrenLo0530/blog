@@ -48,6 +48,10 @@ table {
 	border-spacing: 0;
 }
 
-input:focus{
+input, textarea{
+    border: none;
+}
+
+input:focus, textarea:focus {
     outline: none;
 }

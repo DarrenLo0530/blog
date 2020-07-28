@@ -7,8 +7,6 @@ module ArticlesHelper
     @article = Article.find(params[:id]);
   end
 
-  def validate_article
-    
-  end
+
 
 end

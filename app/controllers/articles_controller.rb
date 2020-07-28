@@ -24,9 +24,12 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.author_id = current_user.id
     @article.view_count = 0
-    @article.save
-    flash.notice = "Created article: '#{@article.title}'"
-    redirect_to article_path(@article);
+    if @article.save
+      flash.notice = "Created article: '#{@article.title}'"
+      redirect_to article_path(@article);
+    else 
+      render :new
+    end
   end
 
   def destroy
@@ -40,14 +43,17 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    helpers.remove_unused_tags
   end
 
   def update
-    @article.update(article_params)
+    if @article.update(article_params)
+      flash.notice = "Updated the article"
+      redirect_to article_path(@article)
+    else
+      render :edit
+    end
 
-    flash.notice = "Updated title to'#{@article.title}'"
-    redirect_to article_path(@article)
+    helpers.remove_unused_tags
   end
 
 end

@@ -2,7 +2,7 @@
 
 <div class = 'item-list'>
     <%if @tags.size() == 0%>
-        <p class = 'none-message'>There are currently no tags</p>
+        <p class = 'highlight-message'>There are currently no tags</p>
     <% else %>
         <ul>   
             <%@tags.each do |tag|%>

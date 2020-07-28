@@ -10,7 +10,6 @@ div {
     position: relative;
 }
 
-
 a {
     display: block;
     color:  var(--high-emphasis);
@@ -39,6 +38,7 @@ h1 {
 h2 {
     text-align: left;
     font-size: 25px;
+    margin: 5px 0px;
 }
 
 h3 {
@@ -51,6 +51,10 @@ header {
     padding: 20px 10%;
 }
 
+footer {
+    padding: 20px 10%;
+}
+
 label {
     display: block;
     font-size: 20px;
@@ -58,7 +62,6 @@ label {
 
 textarea {
     resize: none;
-    height: 30vh;
 }
 
 input, textarea{
@@ -120,7 +123,7 @@ input[type=submit]:hover {
     text-align: center;
 }
 
-.none-message {
+.highlight-message {
     text-align: center;
     font-weight: bold;
     color: var(--main-accent-1)
@@ -157,6 +160,21 @@ input[type=submit]:hover {
     margin: 10px 30px;
 }
 
+.error-container{
+    margin-bottom: 30px;
+}
+
+.error-message {
+    margin: 5px 0px;
+}
+
+#article-body-form {
+    height: 30vh;
+}
+
+#article-tags {
+    font-size: 20px;
+}
 
 
 #article-title {

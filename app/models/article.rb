@@ -7,6 +7,8 @@ class Article < ApplicationRecord
   has_attached_file :image
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
+  validates :title, :body, :author_id, :view_count, presence: true
+
 
   def tag_list
     tags.join(", ")

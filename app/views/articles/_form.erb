@@ -1,12 +1,16 @@
 <div class = 'form-background'>
     <%= form_for(@article, html: {multipart: true}) do |f|%>
-        <ul>
-        <% @article.errors.full_messages.each do |error| %>
-            <li>
-                <%= error %>
-            </li>
+        <%if @article.errors.any? %>
+            <div class = 'error-container'>
+                <ul>
+                <% @article.errors.full_messages.each do |error| %>
+                    <li class = 'error-message highlight-message'>
+                        <%= error %>
+                    </li>
+                <% end %>
+                </ul>
+            </div>
         <% end %>
-        </ul>
 
         <p>
             <%= f.label :title %>
@@ -15,7 +19,7 @@
 
         <p>
             <%= f.label :body %>
-            <%= f.text_area :body %>
+            <%= f.text_area :body, id: 'article-body-form'%>
         </p>
 
         <p>

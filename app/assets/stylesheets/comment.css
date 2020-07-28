@@ -1,0 +1,35 @@
+.comments-container {
+    margin: 30px 100px;
+}
+
+.comment {
+    margin: 30px 0px;
+}
+
+.comment-top {
+    margin: 5px 0px;
+}
+
+.comment-author, .comment-time {
+    display:inline-block;
+}
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-time {
+    color: var(--med-emphasis);
+}
+
+#comment-body-form{
+    margin: 15px 0px 5px 0px;
+    height: 2em;
+    border-radius: 2px;
+
+}
+
+#comment-submit{
+    margin: 5px 0px;
+    display: block;
+    margin-left: auto;
+}

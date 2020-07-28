@@ -4,6 +4,14 @@
     </h1>
 
     <div id = 'article-view-count'><%= "Views: #{@article.view_count}" %></div>
+
+    <%if is_author?%>
+    <%= link_to "Edit Article", edit_article_path(@article), class: "action-link"%>
+
+    <%= link_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "action-link"%>
+<% end %>
+
+
 </div>
 
 <p class = "article-body">
@@ -15,7 +23,7 @@
 
 <div class = 'item-list'>
     <%if @article.tags.size() == 0%>
-        <p class = 'none-message'>No tags for this article</p>
+        <p class = 'highlight-message'>No tags for this article</p>
     <%else%>
         <h2>Tags:</h2>
         <ul>
@@ -27,17 +35,17 @@
 </div>
 
 
-<h3>Comments (<%= @article.comments.size%>)</h3>
+<div class = 'comments-container'>
+    <h2>Comments (<%= @article.comments.size%>)</h2>
+    <%if logged_in?%>
+        <%= render partial: "comments/form" %>
+    <% end %>
+    <%= render partial: 'articles/comment', collection: @article.comments %>
+</div>
 
-<%= render partial: 'articles/comment', collection: @article.comments %>
+<%unless logged_in?%>
+    <p class = 'highlight-message'>Login to post comments</p>
+<% end %>    
 
-<%= render partial: "comments/form" %>
 
-
-
-<%if is_author?%>
-    <%= link_to "Edit Article", edit_article_path(@article), class: "action-link"%>
-
-    <%= link_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "action-link"%>
-<% end %>
 

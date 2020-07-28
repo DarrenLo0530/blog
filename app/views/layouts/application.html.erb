@@ -39,9 +39,12 @@
         </ul>
     </header>
 
-    <p class = "flash">
-        <%= flash.notice %>
-    </p>
+    <% if flash.notice %>
+        <div class = "flash">
+            <p><%= flash.notice %></p>
+        </div>
+    <% end %>
+
     <%= yield %>
   </body>
 

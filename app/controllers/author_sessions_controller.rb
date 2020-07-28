@@ -1,6 +1,9 @@
 class AuthorSessionsController < ApplicationController
-
   def new
+  end
+
+  def index
+    render action: :new
   end
 
   def create
@@ -14,7 +17,7 @@ class AuthorSessionsController < ApplicationController
 
   def destroy
     logout
-    flash.notice = "HI"
+    flash.notice = "Logged out"
     redirect_to authors_path
   end
 end

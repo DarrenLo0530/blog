@@ -7,7 +7,11 @@ class ArticlesController < ApplicationController
   before_action :require_author, only: [:destroy, :edit]
 
   def index
-    @articles = Article.all
+    if(params[:ranked] == 'true')
+      @articles = Article.order(view_count: :desc).limit(5)
+    else
+      @articles = Article.all
+    end
   end
 
   def show

@@ -2,6 +2,7 @@
 
 <%= render partial: "shared/article_display"%>
     
+<%= link_to "Top 5 Articles", articles_path(ranked: "true"), class: "action-link"%>
 
 <% if logged_in? %>
     <%= link_to "Create New Article", new_article_path, class: "action-link" %>

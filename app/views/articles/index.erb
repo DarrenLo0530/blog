@@ -1,9 +1,16 @@
 <h1>All Articles</h1>
 
 <%= render partial: "shared/article_display"%>
-    
-<%= link_to "Top 5 Articles", articles_path(ranked: "true"), class: "action-link"%>
 
+<%= form_tag(articles_path, method: "get", class: 'date-selector') do %>
+    <%= label_tag(:month_year, "View Articles By Month") %>
+    <%= month_field_tag(:month_year) %>
+    <%= submit_tag("View", name: nil) %>
+<% end %>
+
+
+<%= link_to "Top 5 Articles", articles_path(ranked: "true"), class: "action-link"%>
+    
 <% if logged_in? %>
     <%= link_to "Create New Article", new_article_path, class: "action-link" %>
 <% end %>

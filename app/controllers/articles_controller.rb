@@ -7,8 +7,12 @@ class ArticlesController < ApplicationController
   before_action :require_author, only: [:destroy, :edit]
 
   def index
-    if(params[:ranked] == 'true')
+    if params[:ranked] == 'true'
       @articles = Article.order(view_count: :desc).limit(5)
+    elsif params[:month_year].present?
+      month_start = DateTime.strptime(params[:month_year], "%Y-%m").beginning_of_month
+      month_end = month_start.end_of_month
+      @articles = Article.where(created_at: month_start..month_end)
     else
       @articles = Article.all
     end

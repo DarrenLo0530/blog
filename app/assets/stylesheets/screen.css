@@ -108,6 +108,11 @@ input[type=submit]:hover {
     background-color: var(--secondary-accent-2);
 }
 
+.date-selector{
+    margin: auto;
+    width: 300px;
+    text-align: center;
+}
 
 .bullets {
     list-style-position: inside;

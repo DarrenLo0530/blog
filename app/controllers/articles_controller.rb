@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   def index
     if params[:ranked] == 'true'
       @articles = Article.order(view_count: :desc).limit(5)
-    elsif params[:month_year].present?
+    elsif helpers.is_valid_date?(params[:month_year])
       month_start = DateTime.strptime(params[:month_year], "%Y-%m").beginning_of_month
       month_end = month_start.end_of_month
       @articles = Article.where(created_at: month_start..month_end)

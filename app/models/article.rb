@@ -9,7 +9,6 @@ class Article < ApplicationRecord
 
   validates :title, :body, :author_id, :view_count, presence: true
 
-
   def tag_list
     tags.join(", ")
   end
@@ -23,4 +22,6 @@ class Article < ApplicationRecord
     self.view_count += 1
     save!
   end
+
+  
 end

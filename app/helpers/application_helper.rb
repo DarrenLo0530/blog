@@ -11,5 +11,13 @@ module ApplicationHelper
     end
   end
 
-
+  def is_valid_date?(date_string)
+    false unless date_string.present?
+    begin 
+      DateTime.strptime(date_string, "%Y-%m")
+      true
+    rescue
+      false
+    end
+  end
 end
